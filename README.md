@@ -1,66 +1,27 @@
-## Foundry
+## DEX
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+# Basic features
+Swap tokens
+balance out the AMM
 
-Foundry consists of:
+// Core interfaces
+interface IUniswapV2Factory
+interface IUniswapV2Pair
+interface IUniswapV2Router
+interface IUniswapV2Callee    // For flash swaps
+interface IERC20
+interface IWETH               // For ETH wrapping
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+// Main contracts you'll need to implement:
+- UniswapV2Factory.sol       // Creates pairs
+- UniswapV2Pair.sol         // Handles swaps and liquidity
+- UniswapV2Router.sol       // User-facing contract
+- UniswapV2Library.sol      // Helper functions
 
-## Documentation
+Advanced Features:
+MEV Protection
+Gas Optimization
+Price Oracle Integration
+Multiple Pool Types
+Liquidity Mining
 
-https://book.getfoundry.sh/
-
-## Usage
-
-### Build
-
-```shell
-$ forge build
-```
-
-### Test
-
-```shell
-$ forge test
-```
-
-### Format
-
-```shell
-$ forge fmt
-```
-
-### Gas Snapshots
-
-```shell
-$ forge snapshot
-```
-
-### Anvil
-
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
